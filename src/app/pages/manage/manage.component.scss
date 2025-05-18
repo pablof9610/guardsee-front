@@ -1,0 +1,51 @@
+h2 {
+  color: #f3f943;
+  margin-bottom: 1rem;
+}
+
+.manage-card {
+  background-color: #f4f4f4;
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      color: #333;
+
+      span {
+        margin-bottom: 0.3rem;
+      }
+
+      input, select {
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+    }
+
+    button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+}
+  }
+}

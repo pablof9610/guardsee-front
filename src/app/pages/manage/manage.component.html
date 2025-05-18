@@ -1,0 +1,32 @@
+<div class="manage-card">
+  <form (ngSubmit)="saveProduct()">
+    <label>
+      <span>Ícone:</span>
+      <select [(ngModel)]="icone" name="icone">
+        <option value="⌨️">⌨️</option>
+        <option value="🖱️">🖱️</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Nome:</span>
+      <select [(ngModel)]="name" name="name">
+        <option value="" disabled selected>Selecione um item</option>
+        <option value="Teclado">Teclado</option>
+        <option value="Mouse">Mouse</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Quantidade:</span>
+      <input type="text" [(ngModel)]="quantity" name="quantity" placeholder="Quantidade de itens (Obrigatório)" required />
+    </label>
+
+    <label>
+      <span>Ticket:</span>
+      <input type="text" [(ngModel)]="ticket" name="ticket" placeholder="Chamado relacionado ao item (Opcional)"/>
+    </label>
+
+    <button type="submit">Salvar Produto</button>
+  </form>
+</div>
