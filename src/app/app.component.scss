@@ -7,3 +7,31 @@
   flex-grow: 1;
   padding: 2rem;
 }
+
+.toast-container .ngx-toastr {
+  font-family: 'Segoe UI', sans-serif;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toast-success {
+  background-color: #38b000 !important;
+  color: white !important;
+}
+
+.toast-error {
+  background-color: #d00000 !important;
+  color: white !important;
+}
+
+.toast-info {
+  background-color: #3a86ff !important;
+  color: white !important;
+}
+
+.toast-warning {
+  background-color: #ffba08 !important;
+  color: black !important;
+}
+
