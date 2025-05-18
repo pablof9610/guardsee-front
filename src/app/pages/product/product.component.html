@@ -1,2 +1,9 @@
-<h2>Product</h2>
-<p>Bem-vindo à página de produtos!</p>
+<ul>
+  <li *ngFor="let product of products">
+    <app-card name={{product.name}} quantity={{product.quantity}} ticket={{product.ticket}}></app-card>
+  </li>
+</ul>
+
+<!-- <div class="card-grid">
+  <app-card name="Teclado" quantity="50" ticket="DX-999999" icon="⌨️"></app-card>
+</div> -->
