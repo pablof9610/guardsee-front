@@ -8,7 +8,8 @@ import { Component, Input } from "@angular/core";
 
 export class CardComponent {
   @Input() name: string = '';
-  @Input() quantity: string = '';
-  @Input() ticket: string = '';
-  @Input() icon: string = '';
+  @Input() vendor: string = '';
+  @Input() model: string = '';
+  @Input() serialNumber: string = '';
+  @Input() detail: string = '';
 }
