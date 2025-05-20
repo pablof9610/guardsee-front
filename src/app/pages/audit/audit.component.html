@@ -1,0 +1,7 @@
+<div class="card-list-container">
+  <ul>
+  <li *ngFor="let product of products">
+    <app-card name={{product.name}} model={{product.model}} vendor={{product.vendor}} detail={{product.detail}} serialNumber={{product.serialNumber}}></app-card>
+  </li>
+</ul>
+</div>
