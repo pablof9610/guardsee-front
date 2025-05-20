@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  color: #333;
+
+  &:hover {
+    background-color: #e3f2fd; // cinza azulado bem claro
+    border: 1px solid #2196f3; // azul vibrante
+    box-shadow: 0 6px 12px rgba(33, 150, 243, 0.3);
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      transition: border-color 0.3s ease;
+
+      .card:hover & {
+        border-color: #2196f3;
+      }
+    }
+
+    .text-content {
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        margin: 0 0 0.25rem;
+        font-size: 1.2rem;
+        color: #1a237e; // azul escuro sutil
+      }
+
+      p {
+        margin: 0;
+        color: #555;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
