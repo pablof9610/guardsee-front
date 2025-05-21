@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './core/core.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,8 +10,10 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ProductComponent } from './pages/product/product.component';
 import { ManageComponent } from './pages/manage/manage.component';
 import { CardComponent } from './components/card/card.component';
+import { AuditComponent } from './pages/audit/audit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CardDtoComponent } from './components/card-dto/card-dto.component';
 
 @NgModule({
   declarations: [
@@ -19,14 +22,17 @@ import { FormsModule } from '@angular/forms';
     DashboardComponent,
     ProductComponent,
     CardComponent,
-    ManageComponent
+    ManageComponent,
+    AuditComponent,
+    CardDtoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
