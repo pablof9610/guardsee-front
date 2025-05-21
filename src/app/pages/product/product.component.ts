@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../services/product.service";
 import { Product } from "../../models/product";
+import { ProductListDTO } from "../../models/ProductListDTO";
 
 @Component ({
   selector: 'app-product',
@@ -9,12 +10,12 @@ import { Product } from "../../models/product";
 })
 
 export class ProductComponent implements OnInit {
-  products: Product[] = [];
+  products: ProductListDTO[] = [];
 
   constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
-      this.productService.getAllProduct().subscribe(
+      this.productService.getAllProductDistinct().subscribe(
         (data) => {
           this.products = data;
         },
