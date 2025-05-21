@@ -1,16 +1,16 @@
 <div class="manage-card">
   <form (ngSubmit)="saveProduct()">
-    <label>
+    <!-- <label>
       <span>Ícone:</span>
       <select [(ngModel)]="icone" name="icone">
         <option value="⌨️">⌨️</option>
         <option value="🖱️">🖱️</option>
       </select>
-    </label>
+    </label> -->
 
     <label>
       <span>Nome:</span>
-      <select [(ngModel)]="name" name="name">
+      <select [(ngModel)]="name" name="name" required>
         <option value="" disabled selected>Selecione um item</option>
         <option value="Teclado">Teclado</option>
         <option value="Mouse">Mouse</option>
@@ -18,12 +18,35 @@
     </label>
 
     <label>
-      <span>Quantidade:</span>
-      <input type="text" [(ngModel)]="quantity" name="quantity" placeholder="Quantidade de itens (Obrigatório)" required />
+      <span>Fabricante:</span>
+      <select [(ngModel)]="vendor" name="vendor" required>
+        <option value="" disabled selected>Selecione um item</option>
+        <option value="Kingston">Kingston</option>
+        <option value="SanDisk">SanDisk</option>
+      </select>
     </label>
 
     <label>
-      <span>Ticket:</span>
+      <span>Modelo:</span>
+      <select [(ngModel)]="model" name="model" required>
+        <option value="" disabled selected>Selecione um item</option>
+        <option value="Kingston">Kingston</option>
+        <option value="SanDisk">SanDisk</option>
+      </select>
+    </label>
+
+    <label>
+      <span>Detalhes:</span>
+      <input type="text" [(ngModel)]="detail" name="detail" placeholder="Detalhes, exemplo: 480 GB (Obrigatório)"/>
+    </label>
+
+    <label>
+      <span>Número de Série:</span>
+      <input type="text" [(ngModel)]="serialNumber" name="serialNumber" placeholder="Número de série do insumo (Obrigatório)"/>
+    </label>
+
+    <label>
+      <span>Chamado:</span>
       <input type="text" [(ngModel)]="ticket" name="ticket" placeholder="Chamado relacionado ao item (Opcional)"/>
     </label>
 
