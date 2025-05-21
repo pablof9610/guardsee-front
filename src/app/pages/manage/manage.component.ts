@@ -10,20 +10,33 @@ import { ToastrService } from "ngx-toastr";
 })
 
 export class ManageComponent {
-  icone: string = '⌨️';
+  // icone: string = '⌨️';
   name: string = '';
-  quantity: number = 0;
+  vendor: string = '';
+  model: string = '';
   ticket: string = '';
+  serialNumber: string = '';
+  detail: string = '';
 
   constructor(private productService: ProductService,
               private toastr: ToastrService
   ) {}
 
   saveProduct() {
+    const requiredFields = [this.name, this.vendor, this.model, this.detail, this.serialNumber];
+
+    if (requiredFields.some(field => field.trim() == '')) {
+      this.toastr.error('Preencha um ou mais campos em branco.', 'Erro!');
+      return;
+    }
+
     const PRODUTO: Product = {
       name: this.name,
-      quantity: this.quantity,
-      ticket: this.ticket
+      vendor: this.vendor,
+      model: this.model,
+      ticket: this.ticket,
+      serialNumber: this.serialNumber,
+      detail: this.detail
     };
 
     this.productService.saveProduct(PRODUTO).subscribe(
