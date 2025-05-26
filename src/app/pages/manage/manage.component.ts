@@ -37,7 +37,8 @@ export class ManageComponent {
       model: this.model,
       ticket: this.ticket,
       serialNumber: this.serialNumber,
-      detail: this.detail
+      detail: this.detail,
+      state: this.state
     };
 
     this.productService.saveProduct(PRODUTO).subscribe(
@@ -46,8 +47,9 @@ export class ManageComponent {
         this.toastr.success('Produto salvo com sucesso!', 'Sucesso!');
       },
       (err) => {
+        const customErrorMessage = err.error?.error;
         console.log("Erro ao salvar produto: ", err);
-        this.toastr.error('Erro ao salvar o produto', 'Erro');
+        this.toastr.error(customErrorMessage, 'Erro');
       }
     );
   }
