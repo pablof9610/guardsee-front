@@ -1,7 +1,12 @@
 <div class="card-list-container">
   <ul>
   <li *ngFor="let product of products">
-    <app-card-dto name={{product.name}} quantity={{product.quantity}}></app-card-dto>
+    <app-card-dto
+    [name]="product.name"
+    [inStock]="getQuantity(product.states, 'em estoque')"
+    [inUse]="getQuantity(product.states, 'em uso')"
+    [broken]="getQuantity(product.states, 'obsolescencia')"
+    ></app-card-dto>
   </li>
 </ul>
 </div>

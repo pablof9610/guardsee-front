@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../services/product.service";
-import { Product } from "../../models/product";
-import { ProductListDTO } from "../../models/ProductListDTO";
+import { ProductStateDTO } from "../../models/ProductStateDTO";
 
 @Component ({
   selector: 'app-product',
@@ -10,7 +9,7 @@ import { ProductListDTO } from "../../models/ProductListDTO";
 })
 
 export class ProductComponent implements OnInit {
-  products: ProductListDTO[] = [];
+  products: ProductStateDTO[] = [];
 
   constructor(private productService: ProductService) {}
 
@@ -18,11 +17,16 @@ export class ProductComponent implements OnInit {
       this.productService.getAllProductDistinct().subscribe(
         (data) => {
           this.products = data;
+          console.log(data);
         },
         (err) => {
           console.error('Error to find products ',err);
         }
       )
+  }
 
+  getQuantity(states: { name: string, quantity: number }[], target: string): number {
+    const found = states.find(state => state.name.toLowerCase() === target.toLowerCase());
+    return found ? found.quantity : 0;
   }
 }
