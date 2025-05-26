@@ -6,4 +6,5 @@ export interface Product {
   model: string;
   detail: string;
   serialNumber: string;
+  state?: string;
 }

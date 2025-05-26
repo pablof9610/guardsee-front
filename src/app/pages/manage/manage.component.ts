@@ -17,6 +17,7 @@ export class ManageComponent {
   ticket: string = '';
   serialNumber: string = '';
   detail: string = '';
+  state: string = 'em estoque';
 
   constructor(private productService: ProductService,
               private toastr: ToastrService
