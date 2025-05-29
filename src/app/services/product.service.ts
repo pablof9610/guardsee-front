@@ -27,4 +27,8 @@ export class ProductService {
   deleteProductBySerialNumber(serialNumber: string): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${serialNumber}`);
   }
+
+  updateProduct(product: Product): Observable<any> {
+    return this.http.put(this.baseUrl, product);
+  }
 }
