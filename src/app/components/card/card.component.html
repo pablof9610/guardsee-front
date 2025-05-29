@@ -6,7 +6,13 @@
       <p>Fabricante: {{ vendor }}</p>
       <p>Modelo: {{ model }}</p>
       <p>Serial: {{ serialNumber }}</p>
+      <p>Chamado: {{ ticket }}</p>
       <p>Detalhes: {{ detail }}</p>
+      <p id="state" [ngClass]="defineClass()">{{ state }}</p>
     </div>
+  </div>
+  <div class="actions">
+    <button class="btn edit" (click)="onEdit()">✏️</button>
+    <button class="btn delete" (click)="onDelete()">🗑️</button>
   </div>
 </div>
