@@ -1,0 +1,49 @@
+<div class="popup-backdrop">
+  <div class="popup-content" [@popupAnim]>
+    <h2>Editar Produto</h2>
+
+    <label>
+      Nome:
+      <input [(ngModel)]="updatedProduct.name">
+    </label>
+
+    <label>
+      Modelo:
+      <input [(ngModel)]="updatedProduct.model">
+    </label>
+
+    <label>
+      Detalhes:
+      <input [(ngModel)]="updatedProduct.detail">
+    </label>
+
+    <label>
+      Fabricante:
+      <input [(ngModel)]="updatedProduct.vendor">
+    </label>
+
+    <label>
+      Chamado:
+      <input [(ngModel)]="updatedProduct.ticket">
+    </label>
+
+    <label>
+      Estado:
+      <select [(ngModel)]="updatedProduct.state">
+        <option value="em uso">Em uso</option>
+        <option value="em estoque">Em estoque</option>
+        <option value="obsolescencia">Obsolescência</option>
+      </select>
+    </label>
+
+    <label>
+      Serial:
+      <input [(ngModel)]="updatedProduct.serialNumber" disabled>
+    </label>
+
+    <div class="actions">
+      <button (click)="onSave()">Salvar</button>
+      <button (click)="onCancel()">Cancelar</button>
+    </div>
+  </div>
+</div>
