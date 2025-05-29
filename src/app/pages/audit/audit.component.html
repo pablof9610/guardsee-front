@@ -8,17 +8,24 @@
 </div>
 
 <div class="card-list-container">
-  <ul>
-  <li *ngFor="let product of products">
+  <div *ngFor="let product of filteredProducts()">
     <app-card
-    name={{product.name}}
-    model={{product.model}}
-    vendor={{product.vendor}}
-    detail={{product.detail}}
-    serialNumber={{product.serialNumber}}
-    state={{product.state}}
-    (edit)="editProduct($event)"
-    (delete)="deleteProduct($event)"></app-card>
-  </li>
-</ul>
+      [name]="product.name"
+      [vendor]="product.vendor"
+      [model]="product.model"
+      [serialNumber]="product.serialNumber"
+      [ticket]="product.ticket"
+      [detail]="product.detail"
+      [state]="product.state"
+      (edit)="editProduct($event)"
+      (delete)="deleteProduct($event)"
+    ></app-card>
+  </div>
 </div>
+
+<app-edit-popup
+  *ngIf="selectedProduct"
+  [product]="selectedProduct"
+  (save)="saveSelectedProduct($event)"
+  (cancel)="closePopup()">
+</app-edit-popup>

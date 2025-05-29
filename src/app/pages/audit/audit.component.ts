@@ -16,7 +16,9 @@ export class AuditComponent {
   selectedProduct: Product | null = null;
   searchText: string = '';
 
-    constructor(private productService: ProductService) {}
+    constructor(private productService: ProductService,
+                private toastr: ToastrService
+    ) {}
 
     ngOnInit(): void {
         this.productService.getAllProduct().subscribe(
