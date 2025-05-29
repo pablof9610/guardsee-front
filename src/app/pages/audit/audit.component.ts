@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { Product } from "../../models/product";
 import { ProductService } from "../../services/product.service";
+import { EditPopupComponent } from "../../components/edit-popup/edit-popup.component";
+import { ToastrService } from "ngx-toastr";
 import Swal from "sweetalert2";
 
 @Component({
@@ -11,6 +13,8 @@ import Swal from "sweetalert2";
 
 export class AuditComponent {
   products: Product[] = [];
+  selectedProduct: Product | null = null;
+  searchText: string = '';
 
     constructor(private productService: ProductService) {}
 
@@ -25,7 +29,45 @@ export class AuditComponent {
         )
     }
 
-    editProduct(serialNumber: string) {
+    filteredProducts(): Product[] {
+      if (!this.searchText.trim()) return this.products;
+      const term = this.searchText.toLowerCase();
+      return this.products.filter(product =>
+      product.name.toLowerCase().includes(term) ||
+      product.vendor.toLowerCase().includes(term) ||
+      product.model.toLowerCase().includes(term) ||
+      product.serialNumber.toLowerCase().includes(term) ||
+      product.ticket?.toLowerCase().includes(term) ||
+      product.detail.toLowerCase().includes(term) ||
+      product.state?.toLowerCase().includes(term)
+    );
+    }
+
+    editProduct(product: Product) {
+      this.selectedProduct = product;
+    }
+
+    closePopup() {
+      this.selectedProduct = null;
+    }
+
+    saveSelectedProduct(product: Product) {
+      console.log(product);
+      this.productService.updateProduct(product).subscribe(
+        (data) => {
+          console.log(data.ticket);
+          this.toastr.success('Produto alterado com sucesso!', 'Sucesso!');
+          const index = this.products.findIndex(p => p.serialNumber == data.serialNumber);
+          if (index != -1) {
+            this.products[index] = data;
+            this.products = [...this.products];
+          }
+          this.selectedProduct = null;
+        },
+        (err) => {
+          console.log('Erro ao alterar o produto: ',err)
+        }
+      )
     }
 
     deleteProduct(serialNumber: string) {

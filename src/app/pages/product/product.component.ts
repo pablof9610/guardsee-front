@@ -10,6 +10,7 @@ import { ProductStateDTO } from "../../models/ProductStateDTO";
 
 export class ProductComponent implements OnInit {
   products: ProductStateDTO[] = [];
+  searchText: string = '';
 
   constructor(private productService: ProductService) {}
 
@@ -23,6 +24,14 @@ export class ProductComponent implements OnInit {
           console.error('Error to find products ',err);
         }
       )
+  }
+
+  filteredProducts(): ProductStateDTO[] {
+        if (!this.searchText.trim()) return this.products;
+        const term = this.searchText.toLowerCase();
+        return this.products.filter(product =>
+        product.name.toLowerCase().includes(term)
+      );
   }
 
   getQuantity(states: { name: string, quantity: number }[], target: string): number {

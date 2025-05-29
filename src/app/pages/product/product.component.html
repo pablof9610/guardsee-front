@@ -1,6 +1,15 @@
+<div class="search-container">
+  <input
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="🔎 Pesquisar por nome, fabricante, modelo..."
+    class="search-box"
+  />
+</div>
+
 <div class="card-list-container">
   <ul>
-  <li *ngFor="let product of products">
+  <li *ngFor="let product of filteredProducts()">
     <app-card-dto
     [name]="product.name"
     [inStock]="getQuantity(product.states, 'em estoque')"
