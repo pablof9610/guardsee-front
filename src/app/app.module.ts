@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CoreModule } from './core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { AuditComponent } from './pages/audit/audit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CardDtoComponent } from './components/card-dto/card-dto.component';
+import { EditPopupComponent } from './components/edit-popup/edit-popup.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { CardDtoComponent } from './components/card-dto/card-dto.component';
     CardComponent,
     ManageComponent,
     AuditComponent,
-    CardDtoComponent
+    CardDtoComponent,
+    EditPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,8 @@ import { CardDtoComponent } from './components/card-dto/card-dto.component';
     HttpClientModule,
     FormsModule,
     CoreModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
