@@ -1,0 +1,61 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="brand">
+      <!--<div class="logo" aria-hidden="true">🔐</div>-->
+      <h1 class="title">Guardsee</h1>
+      <p class="subtitle">{{ mode === 'login' ? 'Bem-vindo de volta' : 'Crie sua conta' }}</p>
+    </div>
+
+    <form [formGroup]="authForm" (ngSubmit)="submit()" novalidate>
+      <div class="field" *ngIf="mode === 'register'">
+        <label for="name">Nome</label>
+        <input id="name" formControlName="name" type="text" autocomplete="name" />
+        <small class="error" *ngIf="f['name'].touched && f['name'].invalid">Nome é obrigatório (min 2).</small>
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email" autocomplete="username" />
+        <small class="error" *ngIf="f['email'].touched && f['email'].invalid">Email inválido.</small>
+      </div>
+
+      <div class="field password-field">
+        <label for="password">Senha</label>
+        <div class="password-wrap">
+          <input id="password" formControlName="password" [type]="hidePassword ? 'password' : 'text'" autocomplete="current-password" />
+          <button type="button" class="toggle" (click)="hidePassword = !hidePassword" [attr.aria-pressed]="!hidePassword">{{ hidePassword ? 'Mostrar' : 'Ocultar' }}</button>
+        </div>
+        <small class="error" *ngIf="f['password'].touched && f['password'].invalid">Senha mínimo 6 caracteres.</small>
+      </div>
+
+      <div class="field" *ngIf="mode === 'register'">
+        <label for="confirmPassword">Confirmar Senha</label>
+        <input id="confirmPassword" formControlName="confirmPassword" [type]="hidePassword ? 'password' : 'text'" autocomplete="new-password" />
+      </div>
+
+      <div class="actions">
+        <button class="primary" type="submit" [disabled]="loading">
+          <span *ngIf="!loading">{{ mode === 'login' ? 'Entrar' : 'Criar conta' }}</span>
+          <span *ngIf="loading">Processando…</span>
+        </button>
+
+        <button class="ghost" type="button" (click)="toggleMode()" [disabled]="loading">
+          {{ mode === 'login' ? 'Quero criar uma conta' : 'Já tenho conta — entrar' }}
+        </button>
+      </div>
+
+      <p class="error global" *ngIf="error">{{ error }}</p>
+    </form>
+
+    <div class="split-note">
+      <small>Ao continuar você concorda com nossos Termos e a Política de Privacidade.</small>
+    </div>
+  </div>
+
+  <div class="visual">
+    <div class="visual-inner">
+      <h2>Bem-vindo ao Guardsee</h2>
+      <p>Segurança, velocidade e uma interface bonita para gerenciar o que importa.</p>
+    </div>
+  </div>
+</div>
