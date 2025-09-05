@@ -16,6 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CardDtoComponent } from './components/card-dto/card-dto.component';
 import { EditPopupComponent } from './components/edit-popup/edit-popup.component';
+import { LoginRegisterComponent } from './pages/login/login-register.component';
+import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { EditPopupComponent } from './components/edit-popup/edit-popup.component
     ManageComponent,
     AuditComponent,
     CardDtoComponent,
-    EditPopupComponent
+    EditPopupComponent,
+    LoginRegisterComponent,
+    AuthLayoutComponent,
+    MainLayoutComponent
   ],
   imports: [
     BrowserModule,
