@@ -1,0 +1,18 @@
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+app-menu {
+  width: 220px;
+  background: #1a237e;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;        /* aumenta espaço interno */
+  overflow-y: auto;
+  background: #f5f6fa;  /* fundo claro para contraste */
+}
