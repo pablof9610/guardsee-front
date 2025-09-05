@@ -39,14 +39,6 @@ export class EditPopupComponent {
     this.updatedProduct = { ...this.product };
   }
 
-  loadDropDownData() {
-    this.http.get('../../../assets/vendors.txt', {responseType: 'text'})
-      .subscribe(data => this.vendors = data.split('\n').map(v => v.trim()).filter(Boolean));
-
-    this.http.get('/assets/models.txt', {responseType: 'text'})
-      .subscribe(data => this.vendors = data.split('\n').map(v => v.trim()).filter(Boolean))
-  }
-
   onSave() {
     this.save.emit(this.updatedProduct);
   }
